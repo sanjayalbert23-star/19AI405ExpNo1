@@ -50,35 +50,52 @@ class MedicineAgent:
 
     def act(self, environment):
         temp = environment[self.location]["temperature"]
+
         if temp > 98.5:
-            print(f"Patient in {self.location} unhealthy ({temp:.1f}°F). Giving medicine.")
+            print(
+                f"Patient in {self.location} unhealthy "
+                f"({temp:.1f}°F). Giving medicine."
+            )
             self.performance += 10
             environment[self.location]["temperature"] = 98.0
         else:
-            print(f"Patient in {self.location} healthy ({temp:.1f}°F).")
+            print(
+                f"Patient in {self.location} healthy "
+                f"({temp:.1f}°F)."
+            )
 
-        self.location = "Room B" if self.location == "Room A" else "Room A"
+        self.location = (
+            "Room B" if self.location == "Room A" else "Room A"
+        )
         self.performance -= 1
+
         print(f"Moving to {self.location}. Performance: {self.performance}")
         print("-" * 30)
+
 
 def main():
     environment = {
         "Room A": {"temperature": random.uniform(97.0, 102.0)},
         "Room B": {"temperature": random.uniform(97.0, 102.0)}
     }
+
     agent = MedicineAgent()
+
     print("Starting simulation.")
     print("-" * 30)
+
     for step in range(5):
         print(f"--- Step {step + 1} ---")
         agent.act(environment)
+
         random_room = random.choice(["Room A", "Room B"])
         environment[random_room]["temperature"] = random.uniform(99.0, 103.0)
+
     print("Simulation finished.")
 
+
 if __name__ == "__main__":
-      main()</p>
+    main()</p>
 <h3>OUTPUT:</h3>
 <img width="772" height="521" alt="Screenshot 2026-10-26 132738" src="https://github.com/user-attachments/assets/fcc35922-13cc-46fd-a2cd-d1415e8c77b3" />
 <h3>RESULT:</h3>
