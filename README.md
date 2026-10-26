@@ -41,7 +41,9 @@
 <h3>STEP 5:</h3>
 <p>Measure the performance parameters: For each treatment performance incremented, for each movement performance decremented</p>
 <h3>PROGRAM:</h3>
-<p> import random
+<p>
+```
+import random
 
 class MedicineAgent:
     def __init__(self):
@@ -78,7 +80,9 @@ def main():
     print("Simulation finished.")
 
 if __name__ == "__main__":
-    main()</p>
+      main()
+```
+</p>
 <h3>OUTPUT:</h3>
 <img width="772" height="521" alt="Screenshot 2026-10-26 132738" src="https://github.com/user-attachments/assets/fcc35922-13cc-46fd-a2cd-d1415e8c77b3" />
 <h3>RESULT:</h3>
